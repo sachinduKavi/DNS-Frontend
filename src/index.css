@@ -3,16 +3,16 @@ body {
   background: linear-gradient(135deg, #1F509A, #190482); /* 1F509A 190482 070420 0A5EB0 */
   color: #ffffff;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
+  justify-content: center;
   height: 100vh;
   margin: 0;
+  text-align: center; /* Center-align the text */
 }
 
 .App {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   width: 100%;
 }
 
@@ -21,69 +21,84 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #75C1FF;
-  padding: 10px;
-  z-index: 1000; /* Ensure it stays on top of other elements */
+  background-color: #1F75FE; /* Notification bar blue */
+  color: #ffffff;
+  padding: 15px;
+  z-index: 1000;
   text-align: center;
+  font-weight: bold;
+  border-bottom: 3px solid #005BB5;
 }
+
 .container {
   background: #141b24; /* #0D1117 #A49BEC */
-  padding: 50px;
-  border-radius: 10px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
-  width: 100rem;
-  /* width: auto; */
-  max-width: 400px;
+  padding: 50px; /* Larger padding for bigger form */
+  border-radius: 20px; /* More rounded corners for 3D effect */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1); /* Deep shadow for elevation */
+  width: 100%;
+  max-width: 600px; /* Larger form width */
   position: relative;
- 
+  text-align: left;
+  transform: translateY(10px); /* Slight lift effect */
 }
 
-.header {
-  margin-left: 50px ;
-  margin-top: 20px ;
-  margin-right: 100px ;
-  padding-left: 0px;
-  color: #a6a6ff;
-  position: relative;
-}
-
-.header2 {
-  margin-left: 130px ;
-  margin-top: 20px ;
-  margin-right: 50px ;
-  padding-left: 0px;
-  color: #a6a6ff;
-  position: relative;
-}
-
-h2{
-  color: #8EB8E5; /* #FBFFF1 #a6a6ff #ABD2FA #DEE5E5 #8EB8E5 */
-}
-pre {
-  font-size: 36px;
+.header, .header2 {
+  margin: 20px 50px;
+  color: #FFFFFF; /* High contrast text for headers */
+  font-size: 24px; /* Larger text size for headers */
   font-weight: bold;
-  margin-bottom: 0;
-  color: #C2D9FF; /*#a6a6ff*/
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for text */
+}
+
+h2 {
+  color: #FFFFFF; /* High contrast white for subheadings */
+  line-height: 1.6;
+  font-size: 22px; /* Increased size for better visibility */
+  margin-bottom: 20px;
+}
+
+pre {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #FFFFFF; /* White for better visibility */
 }
 
 .form-group {
   margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 textarea,
 input {
   width: 100%;
-  padding: 12px;
+  padding: 15px; /* Larger input size */
   margin-top: 5px;
-  border: none;
-  border-radius: 10px;
-  background: #D9D9D9;
-  color: #000000;
+  border: 2px solid #1F75FE; /* Bright blue borders */
+  border-radius: 8px;
+  background: #FFFFFF; /* Contrast white for readability */
+  color: #002B59; /* Dark blue text for better contrast */
+  font-size: 18px; /* Larger font size */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 textarea {
   resize: none;
-  height: 70px;
+  height: 100px; /* Adjusted textarea height */
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  border: 2px solid #005BB5; /* Darker blue on focus */
+  box-shadow: 0 0 15px rgba(0, 91, 181, 0.5); /* Glow effect */
+  transform: translateY(-2px); /* Lift effect on focus */
+}
+
+textarea[readOnly] {
+  background: #F3F7FD; /* Light blue for readonly fields */
+  color: #555555;
 }
 
 .operation-toggle {
@@ -93,43 +108,106 @@ textarea {
 }
 
 button {
-  background: transparent;
-  color: #ffffff;
-  border: 2px solid #ffffff;
-  padding: 10px 20px;
+  background: linear-gradient(135deg, #1F75FE, #005BB5); /* Attractive blue gradient for buttons */
+  color: #FFFFFF;
+  border: none;
+  padding: 15px 25px; /* Larger button size */
   border-radius: 10px;
   cursor: pointer;
+  font-size: 18px; /* Larger font for buttons */
+  font-weight: bold;
   transition: all 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 91, 181, 0.2); /* Subtle shadow for depth */
 }
- /* #3178C6  #5050a6 #3570BC #466185*/
-/* button:active {
-  background:#466185;
-} */
+
+button:hover {
+  background: linear-gradient(135deg, #005BB5, #003E73); /* Deeper blue on hover */
+  box-shadow: 0 10px 20px rgba(0, 91, 181, 0.3); /* Increased shadow on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+button:active {
+  background: #002B59; /* Darker blue for active state */
+  transform: translateY(1px); /* Slight push down effect on click */
+}
 
 button[disabled] {
-  background-color: red!important;
+  background: red; /* Soft gray-blue for disabled */
+  cursor: not-allowed;
+  color: #DDE5F2;
 }
 
 button.submit {
-  background:linear-gradient(100deg, #2A055E, #221A5E);
+  background: linear-gradient(135deg, #1F75FE, #004AA3); /* Unique gradient for submit */
   border: none;
-  width: 30%;
-  margin: 10px;
-  text-align: center;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #FFFFFF;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 74, 163, 0.2); /* Shadow for submit */
 }
 
-/* button:hover {
-  background: #4400CC;
-} */
+button.submit:hover {
+  background: linear-gradient(135deg, #004AA3, #002B59); /* Hover effect */
+  box-shadow: 0 10px 20px rgba(0, 74, 163, 0.3); /* Increased glow on hover */
+}
+
+button.encryption {
+  background: linear-gradient(135deg, #FF4A4A, #B30000); /* Bright red gradient */
+  color: #FFFFFF;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(179, 0, 0, 0.2); /* Shadow for encryption button */
+}
+
+button.encryption:hover {
+  background: linear-gradient(135deg, #B30000, #660000); /* Darker red hover effect */
+  box-shadow: 0 10px 20px rgba(179, 0, 0, 0.3); /* Increased glow effect */
+}
 
 .switch-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 10px;
-  color: #ffffff;
+  font-size: 18px; /* Increased font size */
+  font-weight: bold; /* Make text stand out */
+  color: #FFFFFF; /* High contrast white text */
 }
 
+.hidden p {
+  font-size: 18px; /* Larger text size for visibility */
+  margin: 0;
+}
+
+body::before {
+  content: "Secure Your Network with Confidence";
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-size: 40px; /* Large background text */
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1); /* Light, transparent white for subtle emphasis */
+  text-transform: uppercase;
+}
+
+body::after {
+  content: "Encryption, Safety, Protection";
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  font-size: 40px; /* Large background text */
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1); /* Transparent for subtlety */
+  text-transform: uppercase;
+}

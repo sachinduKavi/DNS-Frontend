@@ -39,11 +39,15 @@ function App() {
 
   // Handel the inputs
   const handelChange = async (e) => {
-    const {name, value } = e.target
+    let {name, value } = e.target
+    if(name === "key" && value.length <= 0) {
+      // Using random key
+      value = generateRandom()
+      triggerNotification("Using random key: " + value)
+    }
     const updateContext = {...context, [name]: value}
     changeContext(updateContext)
     await callBackend(updateContext)
-
   }
 
 
@@ -78,7 +82,7 @@ function App() {
               Secure Your Data
           </pre>
           <br/>
-          <h2>"Hello, we use the Vernam cipher—a secure method
+          <h2>"Hello, we use the Vigner cipher—a secure method
             that combines your text with a secret key to encrypt it.
             Each character of your text is mixed with a corresponding
             key character, ensuring strong encryption. Enter your plain
@@ -128,7 +132,7 @@ function App() {
           </pre>
           <br/>
           <h2>
-          "For decryption, we use the Vernam cipher to reverse the process. 
+          "For decryption, we use the Vigner cipher to reverse the process. 
           Your encrypted text is combined with the same secret key to restore the original message.
            Enter your cipher text to unlock the plain text!"
           </h2>
